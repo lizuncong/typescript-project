@@ -1,17 +1,21 @@
 class Person{
-    constructor(public name:string){}
-}
+    private static instance: Person;
+    // 使用private修饰constructor，这样就限制了不能通过外部去new一个Person实例
+    private constructor(public name: string){}
 
-class Student extends Person{
-    constructor(private age: number, name: string){
-        // 一定要手动调用父类的构造器
-        super(name);
-    }
+    // 实例方法
     printInfo(){
-        console.log('my name is：', this.name);
-        console.log('my age is：', this.age);
+
+    }
+
+    // 使用static定义静态属性
+    static getInstance(name: string){
+        // 静态属性也可以通过类访问，如：Person.instance
+        if(!this.instance) this.instance = new Person(name);
+        return this.instance;
     }
 }
 
-const stu = new Student(26,'lzc');
-stu.printInfo();
+const p = Person.getInstance('lzc');
+console.log('p.name', p.name);
+
