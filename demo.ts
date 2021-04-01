@@ -1,21 +1,39 @@
-class Person{
-    private static instance: Person;
-    // 使用private修饰constructor，这样就限制了不能通过外部去new一个Person实例
-    private constructor(public name: string){}
 
-    // 实例方法
-    printInfo(){
-
-    }
-
-    // 使用static定义静态属性
-    static getInstance(name: string){
-        // 静态属性也可以通过类访问，如：Person.instance
-        if(!this.instance) this.instance = new Person(name);
-        return this.instance;
-    }
+interface Person {
+    name: string;
 }
 
-const p = Person.getInstance('lzc');
-console.log('p.name', p.name);
+interface Teacher extends Person{
+   subject: string;
+}
 
+interface Student extends Person{
+    age: number;
+}
+
+interface Driver extends Person{
+    driveAge: number;
+}
+
+const teacher: Teacher = {
+   name: 'lzc',
+   subject: 'math'
+}
+
+const student: Student = {
+    name: 'ysn',
+    age: 26,
+}
+
+const driver: Driver = {
+    name: 'mike',
+    driveAge: 5,
+}
+
+const getUserName = (user: Person) => {
+    console.log('user.name', user.name);
+}
+
+getUserName(teacher)
+getUserName(student)
+getUserName(driver)
