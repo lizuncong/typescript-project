@@ -7,15 +7,24 @@
     "@types/cheerio": "^0.22.28",
     "@types/superagent": "^4.1.10",
     "cheerio": "^1.0.0-rc.5",
+    "concurrently": "^6.0.0",
+    "nodemon": "^2.0.7",
     "superagent": "^6.1.0",
     "ts-node": "^9.1.1",
     "typescript": "^3.6.4"
   },
   "devDependencies": {},
   "scripts": {
-    "dev": "ts-node ./crawler/index.ts",
-    "build": "tsc demo.ts",
+    "run": "ts-node ./crawler/index.ts",
+    "dev": "concurrently npm:dev:*",
+    "dev:build": "tsc -w",
+    "dev:start": "nodemon node ./dist/crawler/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "course.json"
+    ]
   },
   "keywords": [],
   "author": "",

@@ -9,7 +9,7 @@ export interface Analyzer {
 }
 
 class Crawler {
-    private filePath = path.resolve(__dirname, './data/course.json');
+    private filePath = path.resolve(__dirname, './course.json');
 
     constructor(private analyzer: Analyzer, private url: string){
         this.initSpiderProcess();
@@ -36,3 +36,4 @@ const url = 'https://coding.imooc.com/?c=fe';
 
 const courseAnalyzer = CourseAnalyzer.getInstance();
 const crawler = new Crawler(courseAnalyzer, url);
+console.log('hah======')
