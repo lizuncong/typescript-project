@@ -1,3 +1,0 @@
-$(function () {
-  $('body').html('<div>123456</div>').html('<div>43434</div>');
-});
