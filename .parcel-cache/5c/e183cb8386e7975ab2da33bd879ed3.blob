@@ -1,0 +1,8 @@
+class Teacher {
+  constructor(info) {
+    this.info = info;
+  }
+  getInfo(key) {
+    return this.info[key];
+  }
+}

@@ -24,6 +24,7 @@
     "dev:start": "nodemon node ./dist/crawler/index.js",
     "demo": "ts-node ./demo.ts",
     "typeDemo": "parcel ./type-desc-demo/index.html",
+    "keyofDemo": "parcel ./keyof-demo/index.html",
     "moduleDemo": "parcel ./module-type-desc-demo/index.html"
   },
   "nodemonConfig": {

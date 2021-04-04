@@ -1,0 +1,27 @@
+class Teacher {
+  constructor(info) {
+    this.info = info;
+  }
+  /*第一种写法，这种写法TS无法推断this.info[key]返回值的类型*/
+  /*getInfo(key: string){*/
+  /*// 由于this.info[key]的返回值的类型不确定，因此TS会提示错误*/
+  /*return this.info[key];*/
+  /*}*/
+  /*第二种写法，类型保护。显然这种写法不是最优的*/
+  /*getInfo(key: string){*/
+  /*if(key === 'name' || key === 'age' || key === 'gender'){*/
+  /*return this.info[key];*/
+  /*}*/
+  /*}*/
+  /*第三种写法，最优写法，采用泛型结合keyof实现*/
+  getInfo(key) {
+    return this.info[key];
+  }
+}
+const teacher = new Teacher({
+  name: 'lzc',
+  age: 26,
+  gender: '男'
+});
+const n = teacher.getInfo('name');
+console.log('name..', n);
