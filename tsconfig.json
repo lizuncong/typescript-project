@@ -1,5 +1,5 @@
 {
-  "include": ["./es6module-demo/*"],
+//  "include": ["./es6module-demo/*"],
   "compilerOptions": {
     /* Basic Options */
     // "incremental": true,                   /* Enable incremental compilation */

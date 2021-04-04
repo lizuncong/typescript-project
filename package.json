@@ -13,13 +13,16 @@
     "ts-node": "^9.1.1",
     "typescript": "^3.6.4"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "parcel": "^2.0.0-beta.2"
+  },
   "scripts": {
     "run": "ts-node ./crawler/index.ts",
     "dev": "concurrently npm:dev:*",
     "dev:build": "tsc -w",
     "dev:start": "nodemon node ./dist/crawler/index.js",
-    "demo": "ts-node ./demo.ts"
+    "demo": "ts-node ./demo.ts",
+    "typeDemo": "parcel ./type-desc-demo/index.html"
   },
   "nodemonConfig": {
     "ignore": [
