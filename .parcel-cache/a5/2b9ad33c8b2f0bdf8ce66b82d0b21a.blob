@@ -1,7 +1,0 @@
-var _jquery = require('jquery');
-var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
-var _jqueryDefault = _parcelHelpers.interopDefault(_jquery);
-_jqueryDefault.default(function () {
-  _jqueryDefault.default('body').html('<div>5656565656</div>');
-  new _jqueryDefault.default.fn.init();
-});
