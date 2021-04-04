@@ -11,3 +11,22 @@ ts代码不能直接运行，需要转换成js代码。
 ### tsconfig.json
 - 如果是在终端运行 `tsc demo.ts` 时，ts默认不会读取 `tsconfig.json`文件。如果是在终端直接运行
   `tsc`，ts会默认读取 `tsconfig.json` 文件。这个区别要注意下。
+
+### 总结
+- class如何继承(implements)interface
+- interface extends(继承) interface的用法，即接口继承接口
+- interface中不确定属性名的用法：[propName: string]: number。
+- 如何使用interface定义函数
+- 什么是元组，元组和数组的区别
+- interface和type的区别。
+- 类的public，protected，private的区别。
+- 类之间的继承都是使用extends关键字。类继承接口(interface)使用的是implements关键字
+- 如何使用class实现单例模式。
+- 如何定义类的静态属性
+- 什么是抽象类。子类继承(extends)抽象类需要实现什么方法。
+- 什么是联合类型，什么是类型保护
+- 什么是泛型。
+    + 泛型的继承使用extends关键字。
+    + 泛型的约束。如何约束泛型只能是指定的类型之一，比如只能是number或者string类型。
+    + 泛型的约束。如何约束泛型必须包含某几个属性。比如泛型T必须是一个包含name属性的对象。
+- 命名空间namespace的用法
