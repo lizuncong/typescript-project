@@ -8,6 +8,7 @@
     "@types/superagent": "^4.1.10",
     "cheerio": "^1.0.0-rc.5",
     "concurrently": "^6.0.0",
+    "jquery": "^3.6.0",
     "nodemon": "^2.0.7",
     "superagent": "^6.1.0",
     "ts-node": "^9.1.1",
@@ -22,7 +23,8 @@
     "dev:build": "tsc -w",
     "dev:start": "nodemon node ./dist/crawler/index.js",
     "demo": "ts-node ./demo.ts",
-    "typeDemo": "parcel ./type-desc-demo/index.html"
+    "typeDemo": "parcel ./type-desc-demo/index.html",
+    "moduleDemo": "parcel ./module-type-desc-demo/index.html"
   },
   "nodemonConfig": {
     "ignore": [
