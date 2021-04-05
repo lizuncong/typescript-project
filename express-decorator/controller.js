@@ -12,7 +12,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 require("reflect-metadata");
 var decorator_1 = require("./decorator");
 var checkLogin = function (req, res, next) {
-    console.log('登录验证...');
+    console.log('登录验证中间件...');
+    next();
+};
+var logger = function (req, res, next) {
+    console.log('日志记录中间件...');
     next();
 };
 var HomeController = (function () {
@@ -42,6 +46,7 @@ var HomeController = (function () {
     __decorate([
         decorator_1.post('/create'),
         decorator_1.use(checkLogin),
+        decorator_1.use(logger),
         __metadata("design:type", Function),
         __metadata("design:paramtypes", [Object, Object]),
         __metadata("design:returntype", void 0)

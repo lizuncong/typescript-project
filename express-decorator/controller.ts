@@ -4,7 +4,13 @@ import { controller, use, get, post } from './decorator';
 
 
 const checkLogin = (req: Request, res: Response, next: NextFunction) => {
-    console.log('登录验证...');
+    console.log('登录验证中间件...');
+    next();
+}
+
+// 如何在一个方法上使用多个装饰器？
+const logger = (req: Request, res: Response, next: NextFunction) => {
+    console.log('日志记录中间件...');
     next();
 }
 
@@ -24,6 +30,7 @@ class HomeController {
 
     @post('/create')
     @use(checkLogin)
+    @use(logger)
     create(req: Request, res: Response){
         res.send('Create Success')
     }
