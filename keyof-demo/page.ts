@@ -4,6 +4,7 @@ interface Person {
     name: string;
     age: number;
     gender: string;
+    [propName: string]: any;
 }
 
 class Teacher {
@@ -40,7 +41,8 @@ class Teacher {
 const teacher = new Teacher({
     name: 'lzc',
     age: 26,
-    gender: '男'
+    gender: '男',
+    test: 123
 })
 
 const n = teacher.getInfo('name');
@@ -50,6 +52,7 @@ console.log('name..', n, n2)
 const age = teacher.getInfo('age');
 const age2 = teacher.getInfo2('age');
 
+const t = teacher.getInfo('test');
 
 // 重点，这里也可以看出，类型不仅可以是基础类型比如number，string等或者interface等。
 // 还可以是自定义的类型。
