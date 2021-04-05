@@ -7,6 +7,12 @@ ts代码不能直接运行，需要转换成js代码。
 - `npx tsc demo.ts` 运行 `tsc` 命令编译ts文件，生成demo.js文件，再运行 `node demo.js`
 - 或者，安装 `ts-node` 插件，然后可以直接运行 `npx ts-node demo.ts`
 
+### 爬虫项目
+- 爬虫项目代码位于crawler文件夹下面
+- 先运行`npm run dev:build`启动typescript编译，编译后的代码在dist文件夹下面
+- 其次运行`npm run dev:start` 启动node服务。
+- 运行 `npm run dev` 实际上是合并了前面两个命令
+
 
 ### tsconfig.json
 - 如果是在终端运行 `tsc demo.ts` 时，ts默认不会读取 `tsconfig.json`文件。如果是在终端直接运行
