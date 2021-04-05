@@ -8,25 +8,43 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var __param = (this && this.__param) || function (paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
-function paramDecorator(target, key, paramIndex) {
-    console.log(target, key, paramIndex);
+var userInfo = undefined;
+function catchError(name) {
+    return function (target, key, descriptor) {
+        var fn = descriptor.value;
+        descriptor.value = function () {
+            try {
+                fn();
+            }
+            catch (e) {
+                console.log("userInfo." + name + "\u5B58\u5728\u95EE\u9898..");
+            }
+        };
+    };
 }
 var Person = (function () {
     function Person() {
     }
-    Person.prototype.getName = function (name, age) {
-        console.log(name, age);
+    Person.prototype.getName = function () {
+        return userInfo.name;
+    };
+    Person.prototype.getAge = function () {
+        return userInfo.age;
     };
     __decorate([
-        __param(0, paramDecorator),
+        catchError('name'),
         __metadata("design:type", Function),
-        __metadata("design:paramtypes", [String, Number]),
+        __metadata("design:paramtypes", []),
         __metadata("design:returntype", void 0)
     ], Person.prototype, "getName", null);
+    __decorate([
+        catchError('age'),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", []),
+        __metadata("design:returntype", void 0)
+    ], Person.prototype, "getAge", null);
     return Person;
 }());
 var p = new Person();
-p.getName('lzc', 26);
+p.getName();
+p.getAge();
