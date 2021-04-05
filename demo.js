@@ -8,29 +8,30 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-function getNameDecorator(target, key, descriptor) {
-    console.log('target..', target);
-    console.log('key..', key);
+function visitDecorator(target, key, descriptor) {
     descriptor.writable = false;
-    descriptor.value = function () {
-        return 'descriptor.value';
-    };
 }
 var Person = (function () {
     function Person(name) {
-        this.name = name;
+        this._name = name;
     }
-    Person.prototype.getName = function () {
-        return this.name;
-    };
+    Object.defineProperty(Person.prototype, "name", {
+        get: function () {
+            return this._name;
+        },
+        set: function (name) {
+            this._name = name;
+        },
+        enumerable: true,
+        configurable: true
+    });
     __decorate([
-        getNameDecorator,
-        __metadata("design:type", Function),
-        __metadata("design:paramtypes", []),
-        __metadata("design:returntype", void 0)
-    ], Person.prototype, "getName", null);
+        visitDecorator,
+        __metadata("design:type", String),
+        __metadata("design:paramtypes", [String])
+    ], Person.prototype, "name", null);
     return Person;
 }());
 var p = new Person('lzc');
-console.log('p..', p);
-console.log('p.getName..', p.getName());
+p.name = '666';
+console.log('p..', p.name);

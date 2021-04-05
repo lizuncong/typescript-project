@@ -21,36 +21,28 @@
 //     }
 // })
 
-// 普通方法，target对应的是类的prototype
-// key 对应的是装饰的方法的名字
-function getNameDecorator(target: any, key: string, descriptor: PropertyDescriptor) {
-    console.log('target..', target);
-    console.log('key..', key);
-    descriptor.writable = false; //装饰的方法不能被重写
-    descriptor.value = () => {
-        return 'descriptor.value';
-    }
+
+function visitDecorator(target: any, key: string, descriptor: PropertyDescriptor) {
+    descriptor.writable = false;
 }
 
 class Person {
-    name: string;
+    private _name: string;
     constructor(name: string){
-        this.name = name;
+        this._name = name;
     }
 
-    @getNameDecorator
-    getName(){
-        return this.name;
+    get name(){
+        return this._name;
     }
 
-    // @getNameDecorator
-    // static staticGetName(){
-    //     return '张三'
-    // }
+    @visitDecorator
+    set name(name:string){
+        this._name = name;
+    }
 }
 
 const p = new Person('lzc');
 
-
-console.log('p..', p);
-console.log('p.getName..', p.getName());
+p.name = '666';
+console.log('p..', p.name);
