@@ -8,30 +8,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-function visitDecorator(target, key, descriptor) {
-    descriptor.writable = false;
+function nameDecorator(target, key) {
+    var descriptor = {
+        writable: false
+    };
+    return 'descriptor';
 }
 var Person = (function () {
-    function Person(name) {
-        this._name = name;
+    function Person() {
+        this.name = 'lzc';
     }
-    Object.defineProperty(Person.prototype, "name", {
-        get: function () {
-            return this._name;
-        },
-        set: function (name) {
-            this._name = name;
-        },
-        enumerable: true,
-        configurable: true
-    });
     __decorate([
-        visitDecorator,
-        __metadata("design:type", String),
-        __metadata("design:paramtypes", [String])
-    ], Person.prototype, "name", null);
+        nameDecorator,
+        __metadata("design:type", Object)
+    ], Person.prototype, "name", void 0);
     return Person;
 }());
-var p = new Person('lzc');
-p.name = '666';
+var p = new Person();
+p.name = 'zhangsan';
 console.log('p..', p.name);

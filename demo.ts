@@ -22,27 +22,19 @@
 // })
 
 
-function visitDecorator(target: any, key: string, descriptor: PropertyDescriptor) {
-    descriptor.writable = false;
+function nameDecorator(target: any, key: string): any {
+    const descriptor: PropertyDescriptor = {
+        writable: false
+    }
+    return descriptor;
 }
 
 class Person {
-    private _name: string;
-    constructor(name: string){
-        this._name = name;
-    }
-
-    get name(){
-        return this._name;
-    }
-
-    @visitDecorator
-    set name(name:string){
-        this._name = name;
-    }
+    @nameDecorator
+    name = 'lzc';
 }
 
-const p = new Person('lzc');
+const p = new Person();
 
-p.name = '666';
+p.name = 'zhangsan';
 console.log('p..', p.name);
