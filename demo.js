@@ -8,22 +8,25 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-function nameDecorator(target, key) {
-    var descriptor = {
-        writable: false
-    };
-    return 'descriptor';
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+function paramDecorator(target, key, paramIndex) {
+    console.log(target, key, paramIndex);
 }
 var Person = (function () {
     function Person() {
-        this.name = 'lzc';
     }
+    Person.prototype.getName = function (name, age) {
+        console.log(name, age);
+    };
     __decorate([
-        nameDecorator,
-        __metadata("design:type", Object)
-    ], Person.prototype, "name", void 0);
+        __param(0, paramDecorator),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [String, Number]),
+        __metadata("design:returntype", void 0)
+    ], Person.prototype, "getName", null);
     return Person;
 }());
 var p = new Person();
-p.name = 'zhangsan';
-console.log('p..', p.name);
+p.getName('lzc', 26);

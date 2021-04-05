@@ -21,20 +21,17 @@
 //     }
 // })
 
-
-function nameDecorator(target: any, key: string): any {
-    const descriptor: PropertyDescriptor = {
-        writable: false
-    }
-    return descriptor;
+// target圆形，key方法名，paramIndex参数所在的位置
+function paramDecorator(target: any, key: string, paramIndex: number) {
+    console.log(target, key, paramIndex);
 }
 
 class Person {
-    @nameDecorator
-    name = 'lzc';
+    getName(@paramDecorator name: string, age: number){
+        console.log(name, age);
+    }
 }
 
 const p = new Person();
+p.getName('lzc', 26);
 
-p.name = 'zhangsan';
-console.log('p..', p.name);
