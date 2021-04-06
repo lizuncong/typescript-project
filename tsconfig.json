@@ -1,5 +1,5 @@
 {
-  "include": ["./express-decorator/"],
+  "include": ["./demo.ts"],
   "compilerOptions": {
     /* Basic Options */
     // "incremental": true,                   /* Enable incremental compilation */
