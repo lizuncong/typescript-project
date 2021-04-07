@@ -1,3 +1,4 @@
+```typescript
 interface Teacher {
     name: string;
     age: number;
@@ -165,3 +166,4 @@ let obj2 = {
 
 obj2 = obj1;
 // obj1 = obj2;
+```
